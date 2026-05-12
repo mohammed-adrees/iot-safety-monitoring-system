@@ -1,0 +1,146 @@
+<svg width="100%" viewBox="0 0 680 820" xmlns="http://www.w3.org/2000/svg" role="img" style="background:#ffffff; font-family: Arial, sans-serif;">
+<title>ESP32 Safety Monitor Wiring Diagram</title>
+<desc>Wiring diagram showing ESP32 connected to DHT11, MQ-3 gas sensor, flame sensor, and buzzer with all pin connections labeled.</desc>
+
+<!-- ─── TITLE ─── -->
+<text x="340" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1a1a1a">ESP32 Safety Monitor — Wiring Diagram</text>
+<text x="340" y="46" text-anchor="middle" font-size="12" fill="#666">Arduino IDE · DHT11 · MQ-3 · Flame Sensor · Buzzer</text>
+
+<!-- ESP32 MODULE -->
+<rect x="240" y="62" width="200" height="380" rx="10" fill="#f0f4f0" stroke="#333" stroke-width="1.5"/>
+<text x="340" y="250" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">ESP32</text>
+<text x="340" y="266" text-anchor="middle" font-size="11" fill="#666">38-pin DevKit</text>
+<rect x="316" y="64" width="48" height="14" rx="3" fill="none" stroke="#888" stroke-width="1"/>
+<text x="340" y="74" text-anchor="middle" font-size="10" fill="#666">USB</text>
+
+<!-- LEFT PINS -->
+<line x1="240" y1="98"  x2="220" y2="98"  stroke="#333" stroke-width="1.2"/>
+<text x="216" y="102" text-anchor="end" font-size="11" fill="#333">GND</text>
+<line x1="240" y1="118" x2="220" y2="118" stroke="#333" stroke-width="1.2"/>
+<text x="216" y="122" text-anchor="end" font-size="11" fill="#333">3V3</text>
+<line x1="240" y1="158" x2="220" y2="158" stroke="#333" stroke-width="1.2"/>
+<text x="216" y="162" text-anchor="end" font-size="11" fill="#333">GPIO 21</text>
+<line x1="240" y1="198" x2="220" y2="198" stroke="#333" stroke-width="1.2"/>
+<text x="216" y="202" text-anchor="end" font-size="11" fill="#333">GPIO 22</text>
+<line x1="240" y1="238" x2="220" y2="238" stroke="#333" stroke-width="1.2"/>
+<text x="216" y="242" text-anchor="end" font-size="11" fill="#333">GPIO 23</text>
+
+<!-- RIGHT PINS -->
+<line x1="440" y1="98"  x2="460" y2="98"  stroke="#333" stroke-width="1.2"/>
+<text x="464" y="102" font-size="11" fill="#333">VIN / 5V</text>
+<line x1="440" y1="118" x2="460" y2="118" stroke="#333" stroke-width="1.2"/>
+<text x="464" y="122" font-size="11" fill="#333">GND</text>
+<line x1="440" y1="178" x2="460" y2="178" stroke="#333" stroke-width="1.2"/>
+<text x="464" y="182" font-size="11" fill="#333">GPIO 34 (ADC)</text>
+
+<!-- POWER RAILS -->
+<rect x="54" y="488" width="580" height="8" rx="3" fill="#C04848" opacity="0.75"/>
+<text x="40" y="496" text-anchor="end" font-size="11" fill="#C04848">3.3 V</text>
+<rect x="54" y="504" width="580" height="8" rx="3" fill="#444" opacity="0.6"/>
+<text x="40" y="512" text-anchor="end" font-size="11" fill="#444">GND</text>
+
+<!-- 3V3 pin to rail -->
+<polyline points="220,118 100,118 100,488" fill="none" stroke="#C04848" stroke-width="1.4" stroke-dasharray="5 3"/>
+<!-- GND left to rail -->
+<polyline points="220,98 86,98 86,504" fill="none" stroke="#555" stroke-width="1.4" stroke-dasharray="5 3"/>
+<!-- GND right to rail -->
+<polyline points="460,118 594,118 594,504" fill="none" stroke="#555" stroke-width="1.4" stroke-dasharray="5 3"/>
+
+<!-- DHT11 -->
+<rect x="30" y="548" width="120" height="80" rx="8" fill="#e8f4e8" stroke="#333" stroke-width="1.2"/>
+<text x="90" y="575" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">DHT11</text>
+<text x="90" y="591" text-anchor="middle" font-size="10" fill="#666">Temp &amp; Humidity</text>
+<text x="36" y="614" font-size="10" fill="#333">VCC</text>
+<text x="66" y="614" font-size="10" fill="#333">DATA</text>
+<text x="108" y="614" font-size="10" fill="#333">GND</text>
+<line x1="44"  y1="628" x2="44"  y2="640" stroke="#333" stroke-width="1.5"/>
+<line x1="77"  y1="628" x2="77"  y2="640" stroke="#333" stroke-width="1.5"/>
+<line x1="120" y1="628" x2="120" y2="640" stroke="#333" stroke-width="1.5"/>
+<!-- DHT11 VCC -->
+<polyline points="44,640 44,496" fill="none" stroke="#C04848" stroke-width="1.4"/>
+<!-- DHT11 GND -->
+<polyline points="120,640 120,512" fill="none" stroke="#555" stroke-width="1.4"/>
+<!-- DHT11 DATA to GPIO21 -->
+<polyline points="77,640 77,680 150,680 150,158 220,158" fill="none" stroke="#1D9E75" stroke-width="1.4"/>
+<circle cx="77" cy="680" r="3" fill="#1D9E75"/>
+<text x="82" y="678" font-size="10" fill="#1D9E75">GPIO 21</text>
+
+<!-- FLAME SENSOR -->
+<rect x="186" y="548" width="130" height="80" rx="8" fill="#e8eef8" stroke="#333" stroke-width="1.2"/>
+<text x="251" y="575" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Flame Sensor</text>
+<text x="251" y="591" text-anchor="middle" font-size="10" fill="#666">Digital output</text>
+<text x="194" y="614" font-size="10" fill="#333">VCC</text>
+<text x="230" y="614" font-size="10" fill="#333">DO</text>
+<text x="272" y="614" font-size="10" fill="#333">GND</text>
+<line x1="200" y1="628" x2="200" y2="640" stroke="#333" stroke-width="1.5"/>
+<line x1="243" y1="628" x2="243" y2="640" stroke="#333" stroke-width="1.5"/>
+<line x1="288" y1="628" x2="288" y2="640" stroke="#333" stroke-width="1.5"/>
+<!-- Flame VCC -->
+<polyline points="200,640 200,496" fill="none" stroke="#C04848" stroke-width="1.4"/>
+<!-- Flame GND -->
+<polyline points="288,640 288,512" fill="none" stroke="#555" stroke-width="1.4"/>
+<!-- Flame DO to GPIO22 -->
+<polyline points="243,640 243,700 165,700 165,198 220,198" fill="none" stroke="#378ADD" stroke-width="1.4"/>
+<circle cx="243" cy="700" r="3" fill="#378ADD"/>
+<text x="248" y="698" font-size="10" fill="#378ADD">GPIO 22</text>
+
+<!-- BUZZER -->
+<rect x="350" y="548" width="110" height="80" rx="8" fill="#fdf0f8" stroke="#333" stroke-width="1.2"/>
+<text x="405" y="575" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Buzzer</text>
+<text x="405" y="591" text-anchor="middle" font-size="10" fill="#666">Passive / Active</text>
+<text x="358" y="614" font-size="10" fill="#333">VCC</text>
+<text x="390" y="614" font-size="10" fill="#333">I/O</text>
+<text x="426" y="614" font-size="10" fill="#333">GND</text>
+<line x1="368" y1="628" x2="368" y2="640" stroke="#333" stroke-width="1.5"/>
+<line x1="405" y1="628" x2="405" y2="640" stroke="#333" stroke-width="1.5"/>
+<line x1="443" y1="628" x2="443" y2="640" stroke="#333" stroke-width="1.5"/>
+<!-- Buzzer VCC -->
+<polyline points="368,640 368,496" fill="none" stroke="#C04848" stroke-width="1.4"/>
+<!-- Buzzer GND -->
+<polyline points="443,640 443,512" fill="none" stroke="#555" stroke-width="1.4"/>
+<!-- Buzzer to GPIO23 -->
+<polyline points="405,640 405,716 174,716 174,238 220,238" fill="none" stroke="#D4537E" stroke-width="1.4"/>
+<circle cx="405" cy="716" r="3" fill="#D4537E"/>
+<text x="410" y="714" font-size="10" fill="#D4537E">GPIO 23</text>
+
+<!-- MQ-3 GAS SENSOR -->
+<rect x="496" y="548" width="136" height="80" rx="8" fill="#fffbec" stroke="#333" stroke-width="1.2"/>
+<text x="564" y="575" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">MQ-3 Gas Sensor</text>
+<text x="564" y="591" text-anchor="middle" font-size="10" fill="#666">Analog output</text>
+<text x="504" y="614" font-size="10" fill="#333">VCC (5V)</text>
+<text x="558" y="614" font-size="10" fill="#333">AO</text>
+<text x="594" y="614" font-size="10" fill="#333">GND</text>
+<line x1="520" y1="628" x2="520" y2="640" stroke="#333" stroke-width="1.5"/>
+<line x1="564" y1="628" x2="564" y2="640" stroke="#333" stroke-width="1.5"/>
+<line x1="612" y1="628" x2="612" y2="640" stroke="#333" stroke-width="1.5"/>
+<!-- MQ3 VCC 5V -->
+<polyline points="520,640 520,480 594,480 594,98 460,98" fill="none" stroke="#EF9F27" stroke-width="1.4"/>
+<circle cx="594" cy="98" r="3" fill="#EF9F27"/>
+<text x="530" y="476" font-size="10" fill="#EF9F27">5 V (VIN)</text>
+<!-- MQ3 GND -->
+<polyline points="612,640 612,512" fill="none" stroke="#555" stroke-width="1.4"/>
+<!-- MQ3 AO to GPIO34 -->
+<polyline points="564,640 564,736 630,736 630,178 460,178" fill="none" stroke="#BA7517" stroke-width="1.4"/>
+<circle cx="564" cy="736" r="3" fill="#BA7517"/>
+<text x="569" y="734" font-size="10" fill="#BA7517">GPIO 34</text>
+
+<!-- LEGEND -->
+<rect x="30" y="758" width="622" height="50" rx="8" fill="none" stroke="#ccc" stroke-width="1"/>
+<text x="44" y="776" font-size="11" fill="#333">Legend:</text>
+<line x1="100" y1="771" x2="130" y2="771" stroke="#C04848" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="134" y="775" font-size="11" fill="#333">3.3 V power</text>
+<line x1="215" y1="771" x2="245" y2="771" stroke="#555" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="249" y="775" font-size="11" fill="#333">GND</text>
+<line x1="295" y1="771" x2="325" y2="771" stroke="#EF9F27" stroke-width="2"/>
+<text x="329" y="775" font-size="11" fill="#333">5 V power</text>
+<line x1="390" y1="771" x2="420" y2="771" stroke="#1D9E75" stroke-width="2"/>
+<text x="424" y="775" font-size="11" fill="#333">DHT11 data</text>
+<line x1="490" y1="771" x2="520" y2="771" stroke="#378ADD" stroke-width="2"/>
+<text x="524" y="775" font-size="11" fill="#333">Flame DO</text>
+<line x1="100" y1="795" x2="130" y2="795" stroke="#D4537E" stroke-width="2"/>
+<text x="134" y="799" font-size="11" fill="#333">Buzzer signal</text>
+<line x1="215" y1="795" x2="245" y2="795" stroke="#BA7517" stroke-width="2"/>
+<text x="249" y="799" font-size="11" fill="#333">MQ-3 analog</text>
+
+<text x="340" y="820" text-anchor="middle" font-size="10" fill="#aaa">Note: DHT11 DATA pin requires a 10kΩ pull-up resistor to 3.3V</text>
+</svg>
